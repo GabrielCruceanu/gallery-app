@@ -1,0 +1,59 @@
+/* You can add global styles to this file, and also import other style files */
+@use "@angular/material" as mat;
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+:root {
+  --grid-sm: 576px;
+  --grid-md: 768px;
+  --grid-lg: 992px;
+  --grid-xl: 1200px;
+  --grid-xxl: 1400px;
+  --header-bg-color: #f5f5f5;
+  --header-text-color: #424242;
+  --nav-link-color: #424242;
+  --nav-link-hover-color: #229799;
+  --nav-link-active-color: #48cfcb;
+  --nav-link-active-border-color: #48cfcb;
+  --favorite-icon-color: #e91e63;
+  --success-snackbar-bg-color: #4caf50;
+  --danger-snackbar-bg-color: #f45151;
+  --snackbar-color: #ffffff;
+  --font-size-large: 1.5rem;
+  --font-size-medium: 1rem;
+  --header-padding: 1rem;
+  --bg-color: #ffffff;
+  --footer-bg-color: #f5f5f5;
+  --footer-text-color: #424242;
+  --footer-button-color: --nav-link-color;
+  --footer-button-hover-color: --nav-link-hover-color;
+  --border-radius: 4px;
+  --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  --tranzition-delay: 0.2s;
+  --tranzition-ease-in-out: all var(--tranzition-delay) ease-in-out;
+}
+
+:root {
+  .snack-bar-success {
+    @include mat.snack-bar-overrides(
+      (
+        container-color: var(--success-snackbar-bg-color),
+        supporting-text-color: var(--snackbar-color),
+      )
+    );
+  }
+
+  .snack-bar-error {
+    @include mat.snack-bar-overrides(
+      (
+        container-color: var(--danger-snackbar-bg-color),
+        supporting-text-color: var(--snackbar-color),
+      )
+    );
+  }
+}

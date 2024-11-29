@@ -1,0 +1,26 @@
+<header>
+  <nav>
+    <h3>{{ title }}</h3>
+    <ul>
+      <li>
+        <a
+          [routerLink]="APP_ROUTES.PHOTOS.path"
+          [ngClass]="{ active: title === APP_ROUTES.PHOTOS.name }"
+        >
+          {{ APP_ROUTES.PHOTOS.name }}
+        </a>
+      </li>
+      <li>
+        <a
+          [routerLink]="APP_ROUTES.FAVORITES.path"
+          [ngClass]="{ active: title === APP_ROUTES.FAVORITES.name }"
+        >
+          {{ APP_ROUTES.FAVORITES.name }}
+        </a>
+      </li>
+      <span></span>
+    </ul>
+
+    <span></span>
+  </nav>
+</header>

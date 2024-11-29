@@ -1,0 +1,10 @@
+<section class="favorites-container">
+  @if (allFavorites.length > 0) {
+    <app-photo-card-layout [photos]="allFavorites" [hasLink]="true" />
+  } @else if (allFavorites.length === 0) {
+    <div class="empty-state">
+      <h2>You don't have any favorites yet</h2>
+      <p>Click on a photo to add it to your favorites.</p>
+    </div>
+  }
+</section>

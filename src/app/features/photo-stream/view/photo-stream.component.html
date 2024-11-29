@@ -1,0 +1,13 @@
+<section
+  class="photo-stream"
+  appInfiniteScroll
+  [scrollOffset]="200"
+  (scrolled)="loadMorePhotos()"
+>
+  @if (photos.length > 0) {
+    <app-photo-card-layout [photos]="photos" [hasLink]="false" />
+  }
+  @if (isLoading || photos.length === 0) {
+    <app-photo-skeleton-layout [skeletonCount]="10" />
+  }
+</section>

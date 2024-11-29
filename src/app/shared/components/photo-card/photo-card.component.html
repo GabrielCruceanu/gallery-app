@@ -1,0 +1,53 @@
+<figure class="photo-card">
+  @if (hasLink()) {
+    <a [routerLink]="['/photos', photo().id]">
+      <img
+        [ngSrc]="photo().download_url"
+        [alt]="photo().author"
+        [width]="photo().width"
+        [height]="photo().height"
+        priority
+        class="photo-image"
+      />
+    </a>
+  } @else {
+    <img
+      (click)="onAddToFavorites(photo())"
+      [ngSrc]="photo().download_url"
+      [alt]="photo().author"
+      [width]="photo().width"
+      [height]="photo().height"
+      priority
+      class="photo-image"
+    />
+    />
+  }
+
+  <figcaption class="photo-card-caption">
+    {{ photo().author }}
+  </figcaption>
+  <div class="photo-card-actions">
+    @if (!hasLink()) {
+      <button
+        mat-icon-button
+        class="favorite-button"
+        [color]="isFavorite() ? 'accent' : 'primary'"
+        aria-label="Add to Favorites"
+        (click)="onAddToFavorites(photo())"
+      >
+        <mat-icon>{{ favoriteIcon() }}</mat-icon>
+      </button>
+    }
+
+    @if (hasLink()) {
+      <button
+        mat-icon-button
+        class="preview-button"
+        aria-label="Preview Image"
+        [routerLink]="['/photos', photo().id]"
+      >
+        <mat-icon>visibility</mat-icon>
+      </button>
+    }
+  </div>
+</figure>

@@ -1,0 +1,30 @@
+@if (photo) {
+  <section class="single-photo-page">
+    <div class="single-photo-page-header">
+      <h1>Photograph {{ photo.author }}</h1>
+      <button
+        mat-fab
+        aria-label="Example icon button with a delete icon"
+        (click)="onRemoveFromFavorites()"
+      >
+        <mat-icon>delete</mat-icon>
+      </button>
+    </div>
+
+    <main>
+      <img
+        [ngSrc]="photo.download_url"
+        [width]="photo.width"
+        [height]="photo.height"
+        [alt]="photo.author"
+        priority
+        class="photo-fullscreen"
+      />
+    </main>
+  </section>
+} @else {
+  <div class="not-found">
+    <h2>Photo not found</h2>
+    <p>We couldn't find the photo you're looking for.</p>
+  </div>
+}
